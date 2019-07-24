@@ -26,6 +26,13 @@ ul{
 [onclick], .clickable, button{
     cursor: pointer;
 }
+.filter-selected{
+  color:brown;
+}
+.game.shadowed.hide-game{
+  display: none;
+}
+
 
 .shadowed{
     -webkit-box-shadow: 10px 10px 35px -13px rgba(0,0,0,0.75);
