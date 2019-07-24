@@ -181,3 +181,13 @@ nav{
     font-family: Arial;
     color: #999;
 }
+
+.delete {
+    background-color: dodgerblue;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 2px;
+    margin: 2px;
+    text-align: center;
+}

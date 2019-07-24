@@ -1,4 +1,5 @@
-
+CREATE DATABASE pymon;
+use pymon;
 CREATE TABLE `game` (
   `id` int(11) NOT NULL,
   `name` varchar(30) NOT NULL,

@@ -19,6 +19,9 @@
         <div class="game-bottom">
             {{g.name}}
         </div>
+        {% if g.creator == player %}
+            <div class="delete">Delete</div>
+        {% endif %}
     </a>
 {% else %}
     <div class="no-games">No available games :(</div>
@@ -32,4 +35,6 @@
     </form>
 </footer>
 </div>
+<script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+<script src="/js/games.js"></script>
 {% endblock %}
