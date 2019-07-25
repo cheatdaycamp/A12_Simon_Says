@@ -59,8 +59,17 @@ def updateOrInsert(sql):
 def delete_game(id):
     try:
         with connection.cursor() as cur:
-            sql = "Delete From game Where id = {}".format(id)
+            sql = "Select status From game Where id = {}".format(id)
             cur.execute(sql)
+            status = cur.fetchone()
+            if status['status'] == "open":
+                sql = "Delete From game Where id = {}".format(id)
+                cur.execute(sql)
+            else:
+                sqlchild = "Delete From playergame Where game = {}".format(id)
+                cur.execute(sqlchild)
+                sqlparent = "Delete From game Where id = {}".format(id)
+                cur.execute(sqlparent)
             connection.commit()
             return {"Status": "Successfully Deleted game {}".format(id)}
     except:
