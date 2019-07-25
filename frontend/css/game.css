@@ -211,3 +211,10 @@
 .game-status.open{
     color:blue;
 }
+.send-to-games-btn {
+    background-color: dodgerblue;
+    color: white;
+    padding: 5px;
+    border: 1px solid white;
+    border-radius: 5px 5px 0px 0px;
+}
