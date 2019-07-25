@@ -87,3 +87,6 @@ def win(game_id, newStep):
 
 def delete_game(id):
     db.delete_game(id)
+
+def high_scores_retrieve():
+    return db.high_scores_retrieve()

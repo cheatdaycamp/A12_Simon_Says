@@ -54,3 +54,6 @@ def updateWonPlayers(game_id):
 
 def delete_game(id):
     dbutils.delete_game(id)
+
+def high_scores_retrieve():
+    return dbutils.high_scores_retrieve()

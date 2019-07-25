@@ -83,3 +83,13 @@ def delete_game(id):
             return {"Status": "Successfully Deleted game {}".format(id)}
     except:
         return {"Status":"Error in deleting game {}".format(id)}
+
+def high_scores_retrieve():
+    try:
+        with connection.cursor() as cur:
+            sql = "SELECT player, count(status) as wins From playergame Where status = 'won' Group By player Order By Wins Desc Limit 10"
+            cur.execute(sql)
+            scores = cur.fetchall()
+            return scores
+    except:
+        return {"Status":"Error in retrieving scores"}

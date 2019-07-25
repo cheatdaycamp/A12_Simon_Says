@@ -1,0 +1,30 @@
+{% extends "./backend/pages/base.html" %}
+{% block head %}
+<link href="/css/games.css?v={{version}}" rel="stylesheet">
+{% endblock %}
+{% block app %}
+<div class="hg-score-header">High Scores</div>
+{% if scores|length > 0 %}
+<table class="high-score-table">
+    <tbody class="hg-scr-body">
+    <tr class="high-score-header">
+        <th class="hi-scr-hd">Rank</th>
+        <th class="hi-scr-hd">Player</th>
+        <th class="hi-scr-hd">Wins</th>
+    </tr>
+    {% for s in scores %}
+        <tr>
+            <td class="cell-border-high-score">{{ loop.index }}</td>
+            <td class="cell-border-high-score">{{s.player}}</td>
+            <td class="cell-border-high-score">{{s.wins}}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endif %}
+<div class="hg-scr-back-wrapper">
+    <button class="hg-scr-back">BACK</button>
+</div>
+<script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+<script src="/jss/games.js"></script>
+{% endblock %}

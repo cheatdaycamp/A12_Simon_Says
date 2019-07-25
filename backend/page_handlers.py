@@ -40,3 +40,9 @@ def play(game_id):
 @jinja2_view('./backend/pages/index.html')
 def landing():
     return {"version" : utils.getVersion()}
+
+@pageHandler.get('/highscores')
+@jinja2_view('./backend/pages/highscores.html')
+def highscores():
+    scores = controller.high_scores_retrieve()
+    return {"version": utils.getVersion(), "scores": scores}
