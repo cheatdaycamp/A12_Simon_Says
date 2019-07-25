@@ -9,4 +9,5 @@ TEMPLATE_PATH.insert(0, os.path.dirname(__file__))
 
 app.merge(staticHandler)
 app.merge(pageHandler)
+
 run(app, host='localhost', port=os.environ.get('PORT', 5000))

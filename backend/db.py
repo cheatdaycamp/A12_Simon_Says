@@ -25,7 +25,10 @@ def newPlayer(player_name, player_av):
     return dbutils.updateOrInsert("INSERT INTO player (id,avatar) VALUES ('{}','{}')".format(player_name,player_av))
 
 def joinGame(game_id, player_id):
-    return dbutils.updateOrInsert("INSERT INTO playergame (game, player) VALUES ('{}', '{}')".format(game_id, player_id))
+    avatar=dbutils.queryOne("SELECT avatar FROM player WHERE id=('{}')".format(player_id))
+    avatar=avatar['avatar']
+    print(avatar)
+    return dbutils.updateOrInsert("INSERT INTO playergame (game, player, avatar) VALUES ('{}', '{}', '{}')".format(game_id, player_id, avatar))
 
 def updatePlayerStatus(game_id, player_id, status):
     return dbutils.updateOrInsert("UPDATE playergame SET status = '{}' WHERE game = '{}' AND player='{}'".format(status, game_id, player_id))

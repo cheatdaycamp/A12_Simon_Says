@@ -11,7 +11,16 @@
         <h1 > Select your user</h1>
         <form action="/players" method="POST">
             <label>Name<input type="text" name="name" required></label>
-            <label>Avatar: cat, dog, turtle, tiger, anonymous <input type="text" name="avatar" required></label>
+            <label>Avatar <select name="avatar" required>
+                <option value="Cat">Cat</option>
+                <option value="Dog">Dog</option>
+                <option value="Turtle">Turtle</option>
+                <option value="Tiger">Tiger</option>
+                <option value="Anonymous">Anonymous</option>
+
+
+
+            </select></label>
             <input class="modal-btn clickable" type="submit" value="Go">
         </form>
     </div>
