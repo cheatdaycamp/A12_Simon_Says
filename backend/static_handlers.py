@@ -5,6 +5,10 @@ staticHandler = Bottle()
 def js(filepath):
     return static_file(filepath, root="./frontend/dist")
 
+@staticHandler.get("/jss/<filepath:re:.*\.js>")
+def js(filepath):
+    return static_file(filepath, root="./frontend/jss")
+
 @staticHandler.get("/css/<filepath:re:.*\.css>")
 def css(filepath):
     return static_file(filepath, root="./frontend/css")
