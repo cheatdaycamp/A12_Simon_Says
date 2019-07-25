@@ -55,3 +55,13 @@ def updateOrInsert(sql):
         print(repr(e))
         pass
     return success
+
+def delete_game(id):
+    try:
+        with connection.cursor() as cur:
+            sql = "Delete From game Where id = {}".format(id)
+            cur.execute(sql)
+            connection.commit()
+            return {"Status": "Successfully Deleted game {}".format(id)}
+    except:
+        return {"Status":"Error in deleting game {}".format(id)}

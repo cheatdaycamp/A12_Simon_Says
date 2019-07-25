@@ -4,7 +4,6 @@ from backend import controller
 
 pageHandler = Bottle()
 
-
 @pageHandler.get('/start')
 @jinja2_view('./backend/pages/start.html')
 def start():
@@ -21,7 +20,12 @@ def games():
     if not currentPlayer:
         redirect("/start")
         return
-    return {"version" : utils.getVersion(), "games": controller.listGames()}
+    return {"version" : utils.getVersion(), "games": controller.listGames(), "player": currentPlayer}
+
+@pageHandler.delete('/games/<id>')
+def delete_game(id):
+    controller.delete_game(id)
+    return redirect('/games')
 
 @pageHandler.get('/games/<game_id>')
 @jinja2_view('./backend/pages/game.html')
