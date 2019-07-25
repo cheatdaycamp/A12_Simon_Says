@@ -63,8 +63,17 @@ def delete_game(id):
             cur.execute(sql)
             status = cur.fetchone()
             if status['status'] == "open":
-                sql = "Delete From game Where id = {}".format(id)
-                cur.execute(sql)
+                sqlplayers = "Select game From playergame Where game = {}".format(id)
+                cur.execute(sqlplayers)
+                players = cur.fetchone()
+                if players:
+                    sqlchild = "Delete From playergame Where game = {}".format(id)
+                    cur.execute(sqlchild)
+                    sqlparent = "Delete From game Where id = {}".format(id)
+                    cur.execute(sqlparent)
+                else:
+                    sql = "Delete From game Where id = {}".format(id)
+                    cur.execute(sql)
             else:
                 sqlchild = "Delete From playergame Where game = {}".format(id)
                 cur.execute(sqlchild)
