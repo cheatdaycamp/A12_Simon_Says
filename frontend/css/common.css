@@ -26,6 +26,7 @@ ul{
 [onclick], .clickable, button{
     cursor: pointer;
 }
+
 .filter-selected{
   color:brown;
 }
