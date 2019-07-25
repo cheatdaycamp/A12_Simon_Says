@@ -45,6 +45,7 @@ export default class Simon extends React.Component {
  
 
     render() {
+
         return <div className="simon" >
             {BUTTONS.map(b => (
                 <SimonBtn  key={b} color={b} active={this.state.activeBtn == b} disabled={this.props.disabled} clickAction={this.activateBtn.bind(this)} />
