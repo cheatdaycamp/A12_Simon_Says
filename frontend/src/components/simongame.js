@@ -4,6 +4,8 @@ import Simon from "./simon"
 import Players from "./players"
 import Sequence from "./sequence"
 
+
+
 export default class SimonGame extends React.Component {
     constructor(){
         super();
