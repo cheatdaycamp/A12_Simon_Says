@@ -21,8 +21,8 @@ def updateGameStep(game_id, new_step):
 def getGamePlayers(game_id):
     return dbutils.queryAll("SELECT * FROM playergame where game = {} ORDER BY created".format(game_id))
 
-def newPlayer(player_name):
-    return dbutils.updateOrInsert("INSERT INTO player (id) VALUES ('{}')".format(player_name))
+def newPlayer(player_name, player_av):
+    return dbutils.updateOrInsert("INSERT INTO player (id,avatar) VALUES ('{}','{}')".format(player_name,player_av))
 
 def joinGame(game_id, player_id):
     return dbutils.updateOrInsert("INSERT INTO playergame (game, player) VALUES ('{}', '{}')".format(game_id, player_id))
