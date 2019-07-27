@@ -15,20 +15,20 @@ def status(game_id):
 def joinGameHandler(game_id):
     playerName = request.get_cookie("player")
     result = controller.joinGame(game_id, playerName)
-    return utils.jsonResponse(response, {"result":result})
+    return utils.jsonResponse(response, {"result": result})
 
 @app.put('/games/<game_id>/players')
 def playerReadyHandler(game_id):
     playerName = request.get_cookie("player")
     result = controller.markPlayerReady(game_id, playerName)
-    return utils.jsonResponse(response, {"result":result})
+    return utils.jsonResponse(response, {"result": result})
 
 @app.post('/games/<game_id>/turn')
 def turnHandler(game_id):
     playerName = request.get_cookie("player")
     color = utils.reqBody(request.body, "color")
     result = controller.playTurn(game_id, playerName, color)
-    return utils.jsonResponse(response, {"result":result})
+    return utils.jsonResponse(response, {"result": result})
 
 @app.post('/players')
 def newPlayerHandler():
@@ -39,12 +39,14 @@ def newPlayerHandler():
     response.set_cookie("avatar", playerAvatar, None, max_age=3600000, path='/')
     redirect("/games")
 
+
 @app.post('/games')
 def create():
     controller.createGame(request.forms.get("name"), request.get_cookie("player"))
     redirect("/games")
 
+# Redirecting to error page in case page not found
 @app.error(404)
 @jinja2_view('./backend/pages/404.html')
 def error404(error):
-    return {"version" : utils.getVersion()}
+    return {"version": utils.getVersion()}
