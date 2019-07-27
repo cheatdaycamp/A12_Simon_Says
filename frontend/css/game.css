@@ -225,3 +225,11 @@
     border: 1px solid white;
     border-radius: 5px 5px 0px 0px;
 }
+.prompt-hide {
+    display: none;
+}
+.gm-prompt {
+    background-color: dodgerblue;
+    color: white;
+    border-radius: 10px;
+}

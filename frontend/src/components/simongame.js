@@ -4,13 +4,13 @@ import Simon from "./simon"
 import Players from "./players"
 import Sequence from "./sequence"
 import BackBtn from "./backbtn"
-
+import GamePrompt from "./gameprompt"
 
 
 export default class SimonGame extends React.Component {
     constructor(){
         super();
-        this.state = {game:{status:"loading", sequence:[]}, user:{name:"", status:""}, players:[]}
+        this.state = {game:{status:"loading", sequence:[]}, user:{name:"", status:""}, players:[], prompt: "prompt-hide"}
         this.playTurn = this.playTurn.bind(this);
     }
 
@@ -24,6 +24,8 @@ export default class SimonGame extends React.Component {
                 //Poll the status only if the game is not over
                 if (newStatus.game.status != "failed" && newStatus.game.status != "won"){
                     setTimeout(() => {this.gameLoop()}, 2000);
+                } else {
+                    this.setState({prompt: "prompt"})
                 }
              });
         });
@@ -41,6 +43,9 @@ export default class SimonGame extends React.Component {
 
     render() {
         return <div className="main">
+                <div className={this.state.prompt}>
+                    <GamePrompt name={this.state.user.name} status={this.state.user.status}/>
+                </div>
                 <div className="center">
                     <Simon  sequence={this.state.game.sequence} disabled={this.state.user.status != "turn"} playTurn={this.playTurn} showPlayBtn={this.state.user.status == "new"}/>
                     <Sequence sequence={this.state.game.sequence} step={this.state.game.step} />
