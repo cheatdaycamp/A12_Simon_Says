@@ -228,8 +228,19 @@
 .prompt-hide {
     display: none;
 }
+.prompt {
+    display: flex;
+    align-items: center;
+}
 .gm-prompt {
-    background-color: dodgerblue;
+    background-color: crimson;
     color: white;
     border-radius: 10px;
+    border: 5px solid white;
+    padding: 10px;
+    font-size: 40px;
+    position: absolute;
+    z-index: 1;
+    text-align: center;
+    width: calc(100% - 30px);
 }
