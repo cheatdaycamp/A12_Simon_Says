@@ -5,8 +5,6 @@ import Players from "./players"
 import Sequence from "./sequence"
 import BackBtn from "./backbtn"
 
-
-
 export default class SimonGame extends React.Component {
     constructor(){
         super();
