@@ -11,6 +11,7 @@ export default class SimonGame extends React.Component {
     constructor(){
         super();
         this.state = {game:{status:"loading", sequence:[]}, user:{name:"", status:""}, players:[]}
+        this.playTurn = this.playTurn.bind(this);
     }
 
     componentDidMount() {
@@ -32,10 +33,16 @@ export default class SimonGame extends React.Component {
         return this.state.user.status == "viewer" && this.state.game.status === "on";
     }
 
+    playTurn(){
+        this.setState({
+            user: {name: this.state.user.name, status: "not turn"}
+        })
+    }
+
     render() {
         return <div className="main">
                 <div className="center">
-                    <Simon  sequence={this.state.game.sequence} disabled={this.state.user.status != "turn"} showPlayBtn={this.state.user.status == "new"}/>
+                    <Simon  sequence={this.state.game.sequence} disabled={this.state.user.status != "turn"} playTurn={this.playTurn} showPlayBtn={this.state.user.status == "new"}/>
                     <Sequence sequence={this.state.game.sequence} step={this.state.game.step} />
                 </div>
                 <div className="side">

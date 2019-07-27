@@ -23,6 +23,7 @@ export default class Simon extends React.Component {
         });
         if (userInitiated){
             ajax(`/games/${getGameId()}/turn`, {method: 'POST', body: JSON.stringify({"color":color})});
+            this.props.playTurn();
         }
     }
 
