@@ -16,7 +16,10 @@
     align-items: center;
     justify-content: space-between;
 }
-
+.player-avatar{
+    width: 20px;
+    height: 20px;
+}
 .player-name{
     margin-left:3px;
 }
