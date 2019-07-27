@@ -2,6 +2,7 @@ import React from "react";
 import {getGameId, ajax} from "../utils"
 import Loader from "./loader"
 
+//component that handles the players that joined the game:
 export default class Players extends React.Component {
     constructor(props){
         super(props);

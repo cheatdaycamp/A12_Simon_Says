@@ -1,6 +1,7 @@
 import React from "react";
 import SequenceLight from "./sequenceLight"
 
+//Lights up the color sequence received
 export default class Sequence extends React.Component {
     render() {
         return <div className="sequence">

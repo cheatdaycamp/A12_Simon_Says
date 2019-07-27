@@ -3,7 +3,7 @@ import { BUTTONS } from "../config"
 import SimonBtn from "./button"
 import { getGameId, ajax } from "../utils"
 
-
+//component that handles the simon element, the one in the middle with the colors on play window.
 export default class Simon extends React.Component {
     constructor(props) {
         super(props);
@@ -42,8 +42,6 @@ export default class Simon extends React.Component {
 
         }, ((this.state.sequenceStep == 0) ? 0 : 1500));
     }
-
-
 
     render() {
 

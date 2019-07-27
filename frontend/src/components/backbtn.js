@@ -1,5 +1,6 @@
 import React from "react";
 
+// Back button component:
 export default class BackBtn extends React.Component {
     constructor() {
         super();

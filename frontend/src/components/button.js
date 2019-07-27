@@ -1,5 +1,6 @@
 import React from "react";
 
+// Clickable coloured button for the game
 export default class SimonBtn extends React.Component {
     activate(){
         if (!this.props.disabled){

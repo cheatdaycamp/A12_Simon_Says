@@ -1,5 +1,6 @@
 import React from "react";
 
+//lights up the button 
 export default class SequenceLight extends React.Component {
     render() {
         return <div className="sequence-light">
