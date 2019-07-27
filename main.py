@@ -14,9 +14,14 @@ TEMPLATE_PATH.insert(0, os.path.dirname(__file__))
 app.merge(staticHandler)
 app.merge(pageHandler)
 
-run(app, host='localhost', port=os.environ.get('PORT', 5000))
+#run(app, host='localhost', port=os.environ.get('PORT', 5000))
 
 #if DEBUG:
 #    run(app, host='localhost', port=os.environ.get('PORT', 5000))
 #else:
 #    run(app, host='0.0.0.0', port=argv[1])
+
+if os.environ.get('APP_LOCATION') == 'heroku':
+    run(app, host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
+else:
+    run(app, host='localhost', port=os.environ.get('PORT', 5000))
