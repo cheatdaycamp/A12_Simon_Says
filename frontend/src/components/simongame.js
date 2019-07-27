@@ -4,11 +4,8 @@ import Simon from "./simon"
 import Players from "./players"
 import Sequence from "./sequence"
 import BackBtn from "./backbtn"
-<<<<<<< HEAD
-=======
 import GamePrompt from "./gameprompt"
 
->>>>>>> 8e328eec2f71898d6c1dc1785ea329343f257270
 
 export default class SimonGame extends React.Component {
     constructor(){
